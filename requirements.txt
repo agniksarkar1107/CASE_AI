@@ -3,7 +3,7 @@ spacy
 requests
 PyPDF2
 pytesseract
-opencv-python
+opencv-python-headless
 numpy
 beautifulsoup4
 pinecone-client
