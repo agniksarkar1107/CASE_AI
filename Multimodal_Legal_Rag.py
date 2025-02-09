@@ -21,42 +21,50 @@ from concurrent.futures import ThreadPoolExecutor
 def custom_css():
     st.markdown("""
         <style>
-        /* Apply styles to body */
+        /* Background and Global Styles */
         html, body, [class*="st-emotion-cache"] {
-            background-color: #1E1E2E; /* Dark background */
-            color: white;
+            background-color: #F8F9FA; /* Soft pastel white */
+            color: #333333;
             font-family: 'Raleway', sans-serif;
         }
 
-        /* Heading Styling */
+        /* Main Heading */
         .main-heading {
             text-align: center;
             font-size: 36px;
             font-weight: bold;
-            color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.6);
+            color: #2C3E50; /* Darker contrast */
             margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* Button Styling */
+        /* Buttons */
         div.stButton > button {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
             color: white;
             border-radius: 12px;
             font-size: 18px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
+            transition: 0.3s;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         div.stButton > button:hover {
-            background: linear-gradient(135deg, #feb47b, #ff7e5f);
-            color: black;
-            transition: 0.3s;
+            background: linear-gradient(135deg, #C2E9FB, #A1C4FD);
+            color: #333;
         }
+
+        /* Sidebar */
+        section[data-testid="stSidebar"] {
+            background-color: #E3F2FD;
+            padding: 20px;
+        }
+
         </style>
     """, unsafe_allow_html=True)
 
-# Call the CSS function
+# Apply Custom Styles
 custom_css()
 nlp = spacy.load("en_core_web_sm")
 # Initialize Streamlit App
