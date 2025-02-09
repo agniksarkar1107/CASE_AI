@@ -9,9 +9,9 @@ langchain-google-genai
 langchain
 openai
 langchain-community
-numpy==1.23.5
-spacy==3.6.1
-thinc==8.1.0
+numpy
+spacy
+thinc
 spacy[en_core_web_sm]
 
 
