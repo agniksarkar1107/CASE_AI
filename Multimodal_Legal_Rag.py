@@ -21,51 +21,79 @@ from concurrent.futures import ThreadPoolExecutor
 def custom_css():
     st.markdown("""
         <style>
-        /* Background and Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;700&display=swap');
+
+        /* Background Gradient */
         html, body, [class*="st-emotion-cache"] {
-            background-color: #F8F9FA; /* Soft pastel white */
-            color: #333333;
-            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(to right, #E0EAFC, #CFDEF3);
+            color: #2C3E50; /* Dark Blue Text */
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Main Heading */
         .main-heading {
             text-align: center;
-            font-size: 36px;
+            font-size: 42px;
             font-weight: bold;
-            color: #2C3E50; /* Darker contrast */
+            color: #1A1A2E; /* Deep Blue */
+            font-family: 'Playfair Display', serif;
             margin-top: 20px;
-            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Subtitle */
+        .sub-heading {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 400;
+            color: #4A4A4A; /* Elegant Dark Grey */
+            font-family: 'Nunito', sans-serif;
+            margin-bottom: 20px;
         }
 
         /* Buttons */
         div.stButton > button {
             background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
             color: white;
-            border-radius: 12px;
             font-size: 18px;
             padding: 12px 24px;
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
             border: none;
-            transition: 0.3s;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
         }
 
         div.stButton > button:hover {
             background: linear-gradient(135deg, #C2E9FB, #A1C4FD);
-            color: #333;
+            color: #1A1A2E;
+            transform: scale(1.05);
         }
 
         /* Sidebar */
         section[data-testid="stSidebar"] {
-            background-color: #E3F2FD;
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            color: #1A1A2E;
         }
 
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-family: 'Nunito', sans-serif;
+            color: #4A4A4A;
+        }
         </style>
     """, unsafe_allow_html=True)
 
 # Apply Custom Styles
 custom_css()
+
 nlp = spacy.load("en_core_web_sm")
 # Initialize Streamlit App
 st.title("CASE AI- A MULTIMODAL LEGAL RAG BY AGNIK SARKAR")
