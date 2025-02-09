@@ -112,10 +112,10 @@ print(pc.list_indexes())
 
 # Create Pinecone index if it does not exist
 index_name = "legal-cases"
-
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 # Connect to the index
 index = pc.Index(index_name)
-gemini_embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key="GEMINI_API_KEY")
+gemini_embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GEMINI_API_KEY)
 retriever = PineconeVectorStore(index, gemini_embeddings, text_key="text").as_retriever()
 
 
@@ -125,7 +125,7 @@ retriever = PineconeVectorStore(index, gemini_embeddings, text_key="text").as_re
 
 
 # Initialize AI agents
-gemini_agent = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="GEMINI_API_KEY")
+gemini_agent = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GEMINI_API_KEY)
 
 qa_chain = ConversationalRetrievalChain.from_llm(
     llm=gemini_agent,
