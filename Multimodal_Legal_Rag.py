@@ -169,7 +169,8 @@ if uploaded_file:
     
     st.subheader("Detailed Case Analysis")
     st.text_area("", case_analysis_text, height=500)
-    # Predict Case Outcome
+    st.download_button("Download Case Analysis", case_analysis_text, file_name="case_detailed_analysis_report.txt")
+  # Predict Case Outcome
     chat_history = []  # Initialize empty chat history
 
     case_prediction = qa_chain.run({"question": document_text, "chat_history": chat_history})
@@ -178,4 +179,4 @@ if uploaded_file:
 
     
     # Generate Report
-    st.download_button("Download Report", case_prediction, file_name="case_analysis_report.txt")
+    st.download_button("Download Report", case_prediction, file_name="case_outcome_report.txt")
