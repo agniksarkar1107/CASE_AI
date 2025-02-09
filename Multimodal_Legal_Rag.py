@@ -108,8 +108,7 @@ print(pc.list_indexes())
 
 
 
-# Define the embedding dimension (e.g., OpenAIEmbeddings default is 1536)
-EMBEDDING_DIMENSION = 1536  
+
 
 # Create Pinecone index if it does not exist
 index_name = "legal-cases"
