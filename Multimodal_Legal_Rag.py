@@ -102,7 +102,7 @@ def scrape_legal_sources(query):
 from pinecone import Pinecone, ServerlessSpec
 
 PINECONE_API_KEY = st.secrets["PINECONE_API_KEY"]
-pc = Pinecone(api_key="PINECONE_API_KEY")
+pc = Pinecone(api_key=PINECONE_API_KEY)
 print(pc.list_indexes())
 
 
