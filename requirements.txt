@@ -10,3 +10,4 @@ pinecone-client
 langchain-google-genai
 langchain
 openai
+langchain-community
