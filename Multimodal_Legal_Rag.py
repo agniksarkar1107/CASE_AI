@@ -18,50 +18,46 @@ from langchain.vectorstores import Pinecone
 from concurrent.futures import ThreadPoolExecutor
 
 #custom css
-custom_css = """
-    <style>
-    /* Custom Font and Background */
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-    
-    body {
-        background-color: #1E1E2E;  /* Dark Aesthetic Theme */
-        color: #FFFFFF;
-        font-family: 'Raleway', sans-serif;
-    }
+def custom_css():
+    st.markdown("""
+        <style>
+        /* Apply styles to body */
+        html, body, [class*="st-emotion-cache"] {
+            background-color: #1E1E2E; /* Dark background */
+            color: white;
+            font-family: 'Raleway', sans-serif;
+        }
 
-    /* Style for Main Heading */
-    .main-heading {
-        text-align: center;
-        font-size: 36px;
-        font-weight: bold;
-        color: #FFD700; /* Gold */
-        text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.6);
-        margin-top: 20px;
-    }
+        /* Heading Styling */
+        .main-heading {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.6);
+            margin-top: 20px;
+        }
 
-    /* Sidebar Styling */
-    .st-emotion-cache-1y4p8pa {
-        background: #28293D !important; 
-        color: white !important;
-    }
+        /* Button Styling */
+        div.stButton > button {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            border-radius: 12px;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+        }
 
-    /* Custom Button */
-    .stButton>button {
-        background: linear-gradient(135deg, #ff7e5f, #feb47b);
-        color: white;
-        border-radius: 12px;
-        font-size: 18px;
-        padding: 10px 20px;
-    }
+        div.stButton > button:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+            color: black;
+            transition: 0.3s;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-    .stButton>button:hover {
-        background: linear-gradient(135deg, #feb47b, #ff7e5f);
-        color: black;
-        transition: 0.3s;
-    }
-
-    </style>
-"""
+# Call the CSS function
+custom_css()
 nlp = spacy.load("en_core_web_sm")
 # Initialize Streamlit App
 st.title("CASE AI- A MULTIMODAL LEGAL RAG BY AGNIK SARKAR")
