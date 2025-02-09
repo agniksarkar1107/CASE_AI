@@ -61,13 +61,13 @@ def scrape_legal_sources(query):
     
     combined_text = "\n\n".join(results)
 
-    # ✅ Step 1: Use NLP for Named Entity Extraction
+    
     doc = nlp(combined_text)
     case_names = [ent.text for ent in doc.ents if ent.label_ == "ORG"]
     court_names = [ent.text for ent in doc.ents if ent.label_ == "GPE"]
     legal_sections = re.findall(r"Section \d+ of the [A-Za-z ]+ Act", combined_text)
 
-    # ✅ Step 2: Summarize Structurally with Gemini AI
+    
     summary_prompt = f"""
     Summarize the following legal precedents into structured case summaries.
     Extract case name, court, date, legal section, and judgment:
@@ -77,13 +77,13 @@ def scrape_legal_sources(query):
     structured_summary = gemini_agent.invoke(summary_prompt)
     
 
-# ✅ Extract text from AIMessage
+
     structured_summary_text = structured_summary.content if hasattr(structured_summary, 'content') else str(structured_summary)
 
 
 
 
-    # ✅ Step 3: Format Data in Tabular Form
+   
     formatted_output = "📌**Legal Case Precedents Summary**\n\n"
     for i, case in enumerate(structured_summary_text.split("\n\n")):
         formatted_output += f"""
@@ -116,7 +116,7 @@ index_name = "legal-cases"
 
 # Connect to the index
 index = pc.Index(index_name)
-gemini_embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key="AIzaSyBdz-qcLFRDsR-mm37AlRf2w6RZws2lDL0")
+gemini_embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key="GEMINI_API_KEY")
 retriever = PineconeVectorStore(index, gemini_embeddings, text_key="text").as_retriever()
 
 
@@ -126,7 +126,7 @@ retriever = PineconeVectorStore(index, gemini_embeddings, text_key="text").as_re
 
 
 # Initialize AI agents
-gemini_agent = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="AIzaSyBdz-qcLFRDsR-mm37AlRf2w6RZws2lDL0")
+gemini_agent = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="GEMINI_API_KEY")
 
 qa_chain = ConversationalRetrievalChain.from_llm(
     llm=gemini_agent,
