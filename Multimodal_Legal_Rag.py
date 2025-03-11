@@ -1,3 +1,6 @@
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""
+os.environ["DISABLE_GPU"] = "1"
 import streamlit as st
 import re
 import spacy
