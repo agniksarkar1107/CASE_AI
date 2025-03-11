@@ -3,7 +3,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 os.environ["DISABLE_GPU"] = "1"
 import streamlit as st
 import re
-import spacy
+
 import requests
 import PyPDF2
 import pytesseract
@@ -96,7 +96,7 @@ def custom_css():
 
 # Apply Custom Styles
 custom_css()
-
+import spacy
 from spacy.cli import download
 try:
         nlp = spacy.load("en_core_web_sm")
