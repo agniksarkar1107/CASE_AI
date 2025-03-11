@@ -13,7 +13,7 @@ numpy
 spacy>=3.0.0
 thinc==8.2.3
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.6.0/en_core_web_sm-3.6.0.tar.gz
-pytesseract
+
 
 
 
