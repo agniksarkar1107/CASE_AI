@@ -97,7 +97,13 @@ def custom_css():
 # Apply Custom Styles
 custom_css()
 
-nlp = spacy.load("en_core_web_sm")
+from spacy.cli import download
+try:
+        nlp = spacy.load("en_core_web_sm")
+    except OSError:
+        download("en_core_web_sm")
+        nlp = spacy.load("en_core_web_sm")
+
 # Initialize Streamlit App
 st.title("CASE AI- A MULTIMODAL LEGAL RAG BY AGNIK SARKAR")
 
