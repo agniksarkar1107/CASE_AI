@@ -9,10 +9,11 @@ langchain-google-genai
 langchain
 openai
 langchain-community
-numpy
-spacy>=3.0.0
+spacy==3.7.2
 thinc==8.2.3
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.6.0/en_core_web_sm-3.6.0.tar.gz
+numpy==1.24.3
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.0/en_core_web_sm-3.7.0.tar.gz
+
 
 
 
